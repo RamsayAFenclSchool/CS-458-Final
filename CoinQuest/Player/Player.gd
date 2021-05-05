@@ -14,6 +14,7 @@ const BOOST_MULTIPLIER = 3
 var is_hurt = false
 var snap
 var max_vel = 0.0
+var is_invincible = false
 
 signal animate
 
@@ -73,14 +74,17 @@ func animate():
 
 
 func hurt():
-	is_hurt = true
-	motion.y = 0
-	position.y -= 1
-	yield(get_tree(), "idle_frame")
-	motion.y = -JUMP_SPEED
-	if motion.x != 0:
-		motion.x = -MAX_SPEED*2*(motion.x/abs(motion.x))
-	$PainSFX.play()
+	if not is_invincible:
+		is_hurt = true
+		motion.y = 0
+		position.y -= 1
+		yield(get_tree(), "idle_frame")
+		motion.y = -JUMP_SPEED
+		if motion.x != 0:
+			motion.x = -MAX_SPEED*2*(motion.x/abs(motion.x))
+		$PainSFX.play()
+		is_invincible = true
+		$InvincibilityTimer.start(0.5)
 
 
 func boost():
@@ -93,3 +97,7 @@ func boost():
 		motion.y -= max_vel + GRAVITY * 2
 	else:
 		motion.y = -JUMP_SPEED*BOOST_MULTIPLIER
+
+
+func _on_InvincibilityTimer_timeout():
+	is_invincible = false

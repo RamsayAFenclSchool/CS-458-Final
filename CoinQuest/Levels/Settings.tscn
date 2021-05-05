@@ -177,7 +177,7 @@ margin_top = 21.0
 margin_right = 322.0
 margin_bottom = 37.0
 size_flags_vertical = 2
-min_value = -80.0
+min_value = -90.0
 max_value = 0.0
 step = 10.0
 script = ExtResource( 12 )
@@ -229,7 +229,7 @@ script = ExtResource( 8 )
 [connection signal="toggled" from="Bonus/EffectButton" to="Node2D" method="_on_EffectButton_toggled"]
 [connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MasterVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MasterVol" method="_on_MasterVol_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MusicVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MusicVol" method="_on_MusicVol_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" to="Node2D" method="_on_EffectVol_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" method="_on_EffectVol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" to="Node2D" method="_on_EffectVol_value_changed"]
 
 [editable path="Node2D"]

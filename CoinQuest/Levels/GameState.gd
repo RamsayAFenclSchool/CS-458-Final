@@ -19,13 +19,14 @@ func _ready():
 	add_to_group("Gamestate")
 
 func hurt():
-	if lives <= 0:
-		die()
-	else:
-		lives -= 1
-		$PlayerLocation/Player.hurt()
-		update_GUI()
-	print(lives)
+	if get_node_or_null("PlayerLocation/Player") != null && not $PlayerLocation/Player.is_invincible:
+		if lives <= 0:
+			die()
+		else:
+			lives -= 1
+			$PlayerLocation/Player.hurt()
+			update_GUI()
+		print(lives)
 
 func add_coin():
 	coins += 1

@@ -48,4 +48,8 @@ bus = "SFX"
 stream = ExtResource( 8 )
 bus = "SFX"
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animate" from="." to="PlayerAnimation" method="_on_Player_animate"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

@@ -18,7 +18,8 @@ func spawn():
 		add_child(spawnling)
 		spawnling.set_as_toplevel(top_level)
 		spawnling.global_position = global_position
-		spawnling.set_collision_mask(collision_mask)
+		if collision_mask > 0:
+			spawnling.set_collision_mask(collision_mask)
 		emit_signal("spawned", spawnling)
 		return spawnling
 

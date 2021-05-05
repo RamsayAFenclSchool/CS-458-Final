@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-spooky-toyland-short.wav-0271ff3e69040ec7341dfb2a5cb8fe4c.sample"
+
+[deps]
+
+source_file="res://SFX/BGM/POL-spooky-toyland-short.wav"
+dest_files=[ "res://.import/POL-spooky-toyland-short.wav-0271ff3e69040ec7341dfb2a5cb8fe4c.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
