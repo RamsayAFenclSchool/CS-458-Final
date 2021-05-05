@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-treasure-match-short.wav-f84b2e90695f0d3f536e76c30fb44d74.sample"
+
+[deps]
+
+source_file="res://SFX/BGM/POL-treasure-match-short.wav"
+dest_files=[ "res://.import/POL-treasure-match-short.wav-f84b2e90695f0d3f536e76c30fb44d74.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

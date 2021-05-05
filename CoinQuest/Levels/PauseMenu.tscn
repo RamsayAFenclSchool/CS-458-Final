@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Pause.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GFX/GUI/blue_button04.png" type="Texture" id=3]
+[ext_resource path="res://Levels/LevelButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GFX/GUI/blue_button05.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/Pixelletters.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 2
+outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 3
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.25
+anchor_top = 0.1
+anchor_right = 0.75
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+
+[node name="Continue" type="TextureButton" parent="Pause/VBoxContainer"]
+margin_top = 138.0
+margin_right = 512.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/VBoxContainer/Continue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" parent="Pause/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 321.0
+margin_right = 512.0
+margin_bottom = 480.0
+stretch_mode = 5
+button_text = "Quit"
+linked_level = "lastScene"
+enabled = true
+sound_effect = "res://SFX/UI/confirmation_002.ogg"
+open_texture = ExtResource( 3 )
+clicked_texture = ExtResource( 5 )
+
+[connection signal="pressed" from="Pause/VBoxContainer/Continue" to="Pause" method="_on_Continue_pressed"]

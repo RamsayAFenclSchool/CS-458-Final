@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GFX/GUI/transparentDark23.png" type="Texture" id=2]
+[ext_resource path="res://GFX/GUI/transparentDark22.png" type="Texture" id=4]
+
+[node name="TouchControlLR" type="Node2D"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( -90, -40 )
+normal = ExtResource( 4 )
+action = "left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( 10, -40 )
+normal = ExtResource( 2 )
+action = "right"
+visibility_mode = 1

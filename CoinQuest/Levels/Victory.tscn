@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Levels/GameOver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GFX/HUD/bannerHanging.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Players/bunny1_jump.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Pixelletters.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Levels/Victory.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Unlocked"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Unlocking"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 81
+outline_size = 2
+outline_color = Color( 0.504883, 0.193305, 0.165665, 1 )
+use_filter = true
+extra_spacing_top = 25
+font_data = ExtResource( 4 )
+
+[node name="Victory" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="." index="0"]
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.25
+custom_fonts/font = SubResource( 1 )
+text = "BONUS LEVEL UNLOCKED"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" index="0"]
+anims/Unlocked = SubResource( 2 )
+anims/Unlocking = SubResource( 3 )
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+margin_bottom = 268.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureRect" index="0"]
+modulate = Color( 1, 0.945098, 0.823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "YOU WIN"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" parent="VBoxContainer" index="1"]
+visible = false
+
+[node name="Quit" parent="VBoxContainer" index="2"]
+margin_top = 308.0
+size_flags_stretch_ratio = 0.5
+button_text = "Continue"
+
+[node name="Sprite" parent="." index="3"]
+position = Vector2( 128, 300 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" parent="." index="4"]
+position = Vector2( 896, 300 )
+texture = ExtResource( 3 )
+
+[connection signal="animation_finished" from="Label/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

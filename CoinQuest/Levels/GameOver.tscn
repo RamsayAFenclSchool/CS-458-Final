@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GFX/Players/bunny1_hurt.png" type="Texture" id=3]
+[ext_resource path="res://Levels/GameOver.gd" type="Script" id=6]
+[ext_resource path="res://Levels/LevelButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GFX/GUI/blue_button04.png" type="Texture" id=8]
+[ext_resource path="res://GFX/GUI/blue_button05.png" type="Texture" id=9]
+[ext_resource path="res://GFX/HUD/textGameOver.png" type="Texture" id=10]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.25
+anchor_top = 0.161
+anchor_right = 0.75
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 121.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Retry" parent="VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 161.0
+margin_right = 512.0
+margin_bottom = 282.0
+stretch_mode = 5
+button_text = "Retry"
+linked_level = "curScene"
+enabled = true
+sound_effect = "res://SFX/UI/confirmation_002.ogg"
+open_texture = ExtResource( 8 )
+clicked_texture = ExtResource( 9 )
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 322.0
+margin_right = 512.0
+margin_bottom = 443.0
+stretch_mode = 5
+button_text = "Quit"
+linked_level = "lastScene"
+enabled = true
+sound_effect = "res://SFX/UI/confirmation_002.ogg"
+open_texture = ExtResource( 8 )
+clicked_texture = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 896, 300 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 128, 300 )
+texture = ExtResource( 3 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/flawless_victory.ogg-5807c93523232084e1408ccf1a310b9d.oggstr"
+
+[deps]
+
+source_file="res://SFX/UI/flawless_victory.ogg"
+dest_files=[ "res://.import/flawless_victory.ogg-5807c93523232084e1408ccf1a310b9d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

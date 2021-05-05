@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/combo.ogg-0b73909bc8cec70d0b837f1bd7de0025.oggstr"
+
+[deps]
+
+source_file="res://SFX/UI/combo.ogg"
+dest_files=[ "res://.import/combo.ogg-0b73909bc8cec70d0b837f1bd7de0025.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,235 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Levels/MainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GFX/GUI/transparentDark15.png" type="Texture" id=3]
+[ext_resource path="res://GFX/GUI/transparentDark14.png" type="Texture" id=4]
+[ext_resource path="res://Levels/MusicButton.gd" type="Script" id=5]
+[ext_resource path="res://Levels/MusicVol.gd" type="Script" id=6]
+[ext_resource path="res://GFX/GUI/transparentDark12.png" type="Texture" id=7]
+[ext_resource path="res://Levels/EffectVol.gd" type="Script" id=8]
+[ext_resource path="res://GFX/GUI/blue_button11.png" type="Texture" id=9]
+[ext_resource path="res://GFX/GUI/blue_button12.png" type="Texture" id=10]
+[ext_resource path="res://GFX/GUI/red_button07.png" type="Texture" id=11]
+[ext_resource path="res://Levels/MasterVol.gd" type="Script" id=12]
+[ext_resource path="res://GFX/GUI/transparentDark10.png" type="Texture" id=13]
+[ext_resource path="res://GFX/GUI/transparentDark16.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Bonus.gd" type="Script" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 104.29, 27.0198 )
+
+[node name="Control" instance=ExtResource( 1 )]
+script = null
+
+[node name="LevelButton" parent="." index="1" instance=ExtResource( 2 )]
+margin_left = 51.0
+margin_top = 30.0
+margin_right = 181.0
+margin_bottom = 98.0
+button_text = "Back"
+linked_level = "res://Levels/MainMenu.tscn"
+enabled = true
+
+[node name="PlayButton" type="TextureButton" parent="." index="2"]
+margin_left = 877.765
+margin_top = 65.1028
+margin_right = 925.765
+margin_bottom = 113.103
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" parent="." index="4"]
+position = Vector2( 894.682, 200 )
+enable_movement = false
+loops = false
+auto = false
+sound = true
+
+[node name="StaticBody2D" parent="Sprite" index="0"]
+visible = false
+
+[node name="StaticBody2D2" parent="Sprite" index="1"]
+visible = false
+
+[node name="StaticBody2D3" parent="Sprite" index="2"]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+position = Vector2( 901.108, 423.535 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Bonus" type="Control" parent="." index="10"]
+margin_left = 866.499
+margin_top = 480.534
+margin_right = 906.499
+margin_bottom = 520.534
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EffectButton" type="TextureButton" parent="Bonus" index="0"]
+margin_top = -1.12244
+margin_right = 86.0
+margin_bottom = 81.8776
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelButton2" parent="Bonus" index="1" instance=ExtResource( 2 )]
+modulate = Color( 0.976471, 1, 0, 1 )
+margin_left = -833.947
+margin_top = -271.756
+margin_right = -639.947
+margin_bottom = -99.7564
+button_text = "Bonus"
+linked_level = "res://Levels/bonusLevel.tscn"
+enabled = true
+sound_effect = "res://SFX/UI/maximize_001.ogg"
+blocked_texture = ExtResource( 11 )
+open_texture = ExtResource( 9 )
+clicked_texture = ExtResource( 10 )
+
+[node name="VBoxContainer" parent="." index="11"]
+anchor_bottom = 0.6
+
+[node name="Label" parent="VBoxContainer" index="0"]
+margin_bottom = 137.0
+text = "Settings"
+
+[node name="TextureRect" parent="VBoxContainer" index="1"]
+margin_top = 111.0
+margin_bottom = 189.0
+
+[node name="Play" parent="VBoxContainer" index="2"]
+visible = false
+margin_top = 0.0
+margin_bottom = 227.0
+
+[node name="Settings" parent="VBoxContainer" index="3"]
+visible = false
+margin_top = 0.0
+
+[node name="SoundSettings" type="TextureRect" parent="VBoxContainer" index="4"]
+margin_top = 162.0
+margin_right = 512.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SoundSettings" index="0"]
+anchor_left = 0.025
+anchor_top = 0.05
+anchor_right = 0.975
+anchor_bottom = 0.95
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicButton" type="TextureRect" parent="VBoxContainer/SoundSettings/HBoxContainer" index="0"]
+margin_right = 160.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SoundSettings/HBoxContainer" index="1"]
+margin_left = 164.0
+margin_right = 486.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="0"]
+margin_left = 136.0
+margin_top = 3.0
+margin_right = 186.0
+margin_bottom = 17.0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+text = "MASTER"
+align = 1
+valign = 1
+
+[node name="MasterVol" type="HSlider" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="1"]
+margin_top = 21.0
+margin_right = 322.0
+margin_bottom = 37.0
+size_flags_vertical = 2
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="2"]
+margin_left = 145.0
+margin_top = 46.0
+margin_right = 176.0
+margin_bottom = 60.0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+text = "BGM"
+align = 1
+valign = 1
+
+[node name="MusicVol" type="HSlider" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="3"]
+margin_top = 64.0
+margin_right = 322.0
+margin_bottom = 80.0
+size_flags_vertical = 2
+min_value = -90.0
+max_value = 0.0
+step = 10.0
+script = ExtResource( 6 )
+
+[node name="Label2" type="Label" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="4"]
+margin_left = 150.0
+margin_top = 88.0
+margin_right = 172.0
+margin_bottom = 102.0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+text = "SFX"
+align = 1
+valign = 1
+
+[node name="EffectVol" type="HSlider" parent="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer" index="5"]
+margin_top = 106.0
+margin_right = 322.0
+margin_bottom = 122.0
+size_flags_vertical = 2
+min_value = -90.0
+max_value = 0.0
+step = 10.0
+script = ExtResource( 8 )
+
+[connection signal="toggled" from="PlayButton" to="PlayButton" method="_on_PlayButton_toggled"]
+[connection signal="toggled" from="Bonus/EffectButton" to="Node" method="_on_EffectButton_toggled"]
+[connection signal="toggled" from="Bonus/EffectButton" to="Node2D" method="_on_EffectButton_toggled"]
+[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MasterVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MasterVol" method="_on_MasterVol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MusicVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/MusicVol" method="_on_MusicVol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" to="Node2D" method="_on_EffectVol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" to="VBoxContainer/SoundSettings/HBoxContainer/VBoxContainer/EffectVol" method="_on_EffectVol_value_changed"]
+
+[editable path="Node2D"]

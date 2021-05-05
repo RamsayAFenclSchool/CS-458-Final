@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-ninja-panda-short.wav-02bf833b107090228f7501a09f4375a2.sample"
+
+[deps]
+
+source_file="res://SFX/BGM/POL-ninja-panda-short.wav"
+dest_files=[ "res://.import/POL-ninja-panda-short.wav-02bf833b107090228f7501a09f4375a2.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

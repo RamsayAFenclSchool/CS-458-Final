@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-doggo-brothers-short.wav-c1a95d420a718e15307978adf8801457.sample"
+
+[deps]
+
+source_file="res://SFX/BGM/POL-doggo-brothers-short.wav"
+dest_files=[ "res://.import/POL-doggo-brothers-short.wav-c1a95d420a718e15307978adf8801457.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

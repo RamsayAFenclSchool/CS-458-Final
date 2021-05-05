@@ -1,0 +1,236 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://GFX/HUD/textGameOver.png" type="Texture" id=1]
+[ext_resource path="res://Levels/LevelButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GFX/GUI/blue_button04.png" type="Texture" id=3]
+[ext_resource path="res://GFX/GUI/blue_button05.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/Pixelletters.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://GFX/Environment/ground_grass.png" type="Texture" id=6]
+[ext_resource path="res://Player/DummyPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Items/dropperCoin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Items/RadialSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/CoinRain.gd" type="Script" id=10]
+[ext_resource path="res://Levels/MainMenu.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 523.666, 27.0198 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 385.879 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="TextureRect" parent="."]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.1
+margin_left = -87.3672
+margin_top = -72.66
+margin_right = -606.367
+margin_bottom = -104.26
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3" type="TextureRect" parent="."]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.1
+margin_left = 638.0
+margin_top = -137.642
+margin_right = 22.0
+margin_bottom = -90.2421
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 895.804, 293.561 )
+enable_tog = true
+min_wait_time = 3.0
+max_wait_time = 5.0
+sound = false
+
+[node name="Node" type="Control" parent="."]
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadialSpawner" parent="Node" instance=ExtResource( 9 )]
+position = Vector2( 256, 0 )
+spawnling_scene = ExtResource( 8 )
+top_level = false
+min_wait_time = 0.0
+max_wait_time = 1.2
+collision_mask = 2
+spawning_radius = 256.0
+
+[node name="RadialSpawner2" parent="Node" instance=ExtResource( 9 )]
+position = Vector2( 512, 0 )
+spawnling_scene = ExtResource( 8 )
+top_level = false
+min_wait_time = 0.0
+max_wait_time = 1.2
+collision_mask = 2
+spawning_radius = 256.0
+
+[node name="RadialSpawner3" parent="Node" instance=ExtResource( 9 )]
+position = Vector2( 768, 0 )
+spawnling_scene = ExtResource( 8 )
+top_level = false
+min_wait_time = 0.0
+max_wait_time = 1.2
+collision_mask = 2
+spawning_radius = 256.0
+
+[node name="Sprite" type="TextureRect" parent="."]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.1
+margin_top = 8.59998
+margin_right = 5.0
+margin_bottom = -17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+position = Vector2( 513.859, 23.9385 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Sprite"]
+position = Vector2( 2.51984, -273.403 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sprite"]
+position = Vector2( 1028.1, -275.923 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D3"]
+shape = SubResource( 2 )
+
+[node name="Sprite4" type="TextureRect" parent="."]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.1
+margin_left = -107.78
+margin_top = -85.5806
+margin_right = -905.78
+margin_bottom = -44.1805
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite5" type="TextureRect" parent="."]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.1
+margin_left = 830.0
+margin_top = -52.5409
+margin_right = 32.0
+margin_bottom = -44.1409
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.25
+anchor_top = 0.1
+anchor_right = 0.75
+anchor_bottom = 0.587
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "CoinQuest"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+visible = false
+margin_top = 126.0
+margin_right = 512.0
+margin_bottom = 227.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+
+[node name="Play" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 111.0
+margin_right = 512.0
+margin_bottom = 189.0
+stretch_mode = 5
+button_text = "Play"
+linked_level = "res://Levels/LevelSel.tscn"
+enabled = true
+sound_effect = "res://SFX/UI/confirmation_002.ogg"
+open_texture = ExtResource( 3 )
+clicked_texture = ExtResource( 4 )
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 214.0
+margin_right = 512.0
+margin_bottom = 292.0
+stretch_mode = 5
+button_text = "Settings"
+linked_level = "res://Levels/Settings.tscn"
+enabled = true
+sound_effect = "res://SFX/UI/confirmation_002.ogg"
+open_texture = ExtResource( 3 )
+clicked_texture = ExtResource( 4 )
+
+[editable path="Node2D"]
