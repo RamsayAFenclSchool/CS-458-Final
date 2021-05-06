@@ -1,12 +1,12 @@
 # CS-458-Final
 A 2d platformer game for android
 
-#Made by:
+Made by:
 -Ramsay Fencl
 -Nate Adams
 -Logan Tan
 
-#Assets by:
+Assets by:
 -Nate Adams
 -kenny.nl (creative commons)
 -Background music from PlayOnLoop.com
