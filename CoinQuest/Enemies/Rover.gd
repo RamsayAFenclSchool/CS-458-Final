@@ -11,10 +11,10 @@ var direction = 1
 func _physics_process(_delta):
 	if is_on_wall():
 		motion.x = 0
-		if $roomba/cat.flip_h == false:
-			$roomba/cat.flip_h = true
+		if $roomba.flip_h == false:
+			$roomba.flip_h = true
 		else:
-			$roomba/cat.flip_h = false
+			$roomba.flip_h = false
 		direction *= -1.0
 	apply_gravity()
 	move()

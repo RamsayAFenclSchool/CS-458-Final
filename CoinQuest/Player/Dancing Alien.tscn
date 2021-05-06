@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GFX/Environment/tilemap_packed.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Dance"
+length = 2.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 19, 20, 21, 22, 23, 24, 25, 26, 27, 29, 19 ]
+}
+
+[node name="Dancing Alien" type="Sprite"]
+position = Vector2( 0.166855, 0 )
+texture = ExtResource( 1 )
+hframes = 30
+vframes = 30
+frame = 26
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Dance"
+anims/Dance = SubResource( 1 )

@@ -88,8 +88,6 @@ func hurt():
 
 
 func boost():
-# warning-ignore:unused_variable
-	var currentVelocity = motion.y
 	motion.y = 0
 	position.y -= 1
 	yield(get_tree(), "idle_frame")

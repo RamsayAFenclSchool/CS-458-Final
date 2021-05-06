@@ -327,6 +327,3 @@ position = Vector2( -2623.19, 32.4016 )
 
 [node name="Portal" parent="." index="11"]
 position = Vector2( 12938.3, -1088.96 )
-
-[node name="CanvasLayer" parent="." index="13"]
-start_chime = "res://SFX/jingles_NES03.ogg"
